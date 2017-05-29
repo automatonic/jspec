@@ -7,7 +7,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/tests/JApi.Should/JApi.Should.csproj"
+                "${workspaceRoot}/jspec.sln"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
