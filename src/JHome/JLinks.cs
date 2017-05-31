@@ -10,14 +10,14 @@ namespace JHome
     /// <remarks>
     /// https://tools.ietf.org/html/rfc5988#section-4.1
     /// </remarks>
-    public static class JLinkProperties
+    public partial class JLink
     {
         /// <summary> Designates a substitute for the link's context.</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Alternate(string url) =>
-            new JLinkProperty(
+        public static JLink ToAlternate(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Alternate,
                 url: url);
 
@@ -26,8 +26,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Appendix(string url) =>
-            new JLinkProperty(
+        public static JLink ToAppendix(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Appendix,
                 url: url);
 
@@ -35,8 +35,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Bookmark(string url) =>
-            new JLinkProperty(
+        public static JLink ToBookmark(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Bookmark,
                 url: url);
 
@@ -44,8 +44,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Chapter(string url) =>
-            new JLinkProperty(
+        public static JLink ToChapter(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Chapter,
                 url: url);
 
@@ -53,8 +53,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Contents(string url) =>
-            new JLinkProperty(
+        public static JLink ToContents(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Contents,
                 url: url);
 
@@ -62,8 +62,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Copyright(string url) =>
-            new JLinkProperty(
+        public static JLink ToCopyright(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Copyright,
                 url: url);
 
@@ -71,8 +71,8 @@ namespace JHome
         /// <remarks> [RFC5005]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Current(string url) =>
-            new JLinkProperty(
+        public static JLink ToCurrent(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Current,
                 url: url);
 
@@ -80,8 +80,8 @@ namespace JHome
         /// <remarks> <http://www.w3.org/TR/powder-dr/#assoc-linking>
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Describedby(string url) =>
-            new JLinkProperty(
+        public static JLink ToDescribedby(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Describedby,
                 url: url);
 
@@ -90,8 +90,8 @@ namespace JHome
         /// <remarks> [RFC5023]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Edit(string url) =>
-            new JLinkProperty(
+        public static JLink ToEdit(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Edit,
                 url: url);
 
@@ -99,8 +99,8 @@ namespace JHome
         /// <remarks> [RFC5023]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty EditMedia(string url) =>
-            new JLinkProperty(
+        public static JLink ToEditMedia(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.EditMedia,
                 url: url);
 
@@ -108,8 +108,8 @@ namespace JHome
         /// <remarks> [RFC4287]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Enclosure(string url) =>
-            new JLinkProperty(
+        public static JLink ToEnclosure(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Enclosure,
                 url: url);
 
@@ -120,8 +120,8 @@ namespace JHome
         ///       2004.
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty First(string url) =>
-            new JLinkProperty(
+        public static JLink ToFirst(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.First,
                 url: url);
 
@@ -130,8 +130,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Glossary(string url) =>
-             new JLinkProperty(
+        public static JLink ToGlossary(string url) =>
+             new JLink(
                  relationType: RegisteredLinkRelationTypes.Glossary,
                  url: url);
 
@@ -139,8 +139,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Help(string url) =>
-            new JLinkProperty(
+        public static JLink ToHelp(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Help,
                 url: url);
 
@@ -149,8 +149,8 @@ namespace JHome
         /// Notes: this relation type was requested by Brett Slatkin.
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Hub(string url) =>
-            new JLinkProperty(
+        public static JLink ToHub(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Hub,
                 url: url);
 
@@ -158,8 +158,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Index(string url) =>
-            new JLinkProperty(
+        public static JLink ToIndex(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Index,
                 url: url);
 
@@ -170,8 +170,8 @@ namespace JHome
         ///   2004.
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Last(string url) =>
-            new JLinkProperty(
+        public static JLink ToLast(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Last,
                 url: url);
 
@@ -179,8 +179,8 @@ namespace JHome
         /// <remarks> [RFC5829]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty LatestVersion(string url) =>
-            new JLinkProperty(
+        public static JLink ToLatestVersion(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.LatestVersion,
                 url: url);
 
@@ -188,8 +188,8 @@ namespace JHome
         /// <remarks> [RFC4946]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty License(string url) =>
-            new JLinkProperty(
+        public static JLink ToLicense(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.License,
                 url: url);
 
@@ -197,8 +197,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Next(string url) =>
-            new JLinkProperty(
+        public static JLink ToNext(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Next,
                 url: url);
 
@@ -206,8 +206,8 @@ namespace JHome
         /// <remarks> [RFC5005]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty NextArchive(string url) =>
-            new JLinkProperty(
+        public static JLink ToNextArchive(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.NextArchive,
                 url: url);
 
@@ -229,8 +229,8 @@ namespace JHome
         /// through an online retailer.
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Payment(string url) =>
-            new JLinkProperty(
+        public static JLink ToPayment(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Payment,
                 url: url);
 
@@ -238,8 +238,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Prev(string url) =>
-            new JLinkProperty(
+        public static JLink ToPrev(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Prev,
                 url: url);
 
@@ -247,8 +247,8 @@ namespace JHome
         /// <remarks> [RFC5829]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty PredecessorVersion(string url) =>
-            new JLinkProperty(
+        public static JLink ToPredecessorVersion(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.PredecessorVersion,
                 url: url);
 
@@ -256,8 +256,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Previous(string url) =>
-            new JLinkProperty(
+        public static JLink ToPrevious(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Previous,
                 url: url);
 
@@ -265,8 +265,8 @@ namespace JHome
         /// <remarks> [RFC5005]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty PrevArchive(string url) =>
-            new JLinkProperty(
+        public static JLink ToPrevArchive(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.PrevArchive,
                 url: url);
 
@@ -274,8 +274,8 @@ namespace JHome
         /// <remarks> [RFC4287]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Related(string url) =>
-            new JLinkProperty(
+        public static JLink ToRelated(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Related,
                 url: url);
 
@@ -283,8 +283,8 @@ namespace JHome
         /// <remarks> [RFC4685]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Replies(string url) =>
-            new JLinkProperty(
+        public static JLink ToReplies(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Replies,
                 url: url);
 
@@ -292,8 +292,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Section(string url) =>
-            new JLinkProperty(
+        public static JLink ToSection(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Section,
                 url: url);
 
@@ -301,8 +301,8 @@ namespace JHome
         /// <remarks> [RFC4287]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Self(string url) =>
-            new JLinkProperty(
+        public static JLink ToSelf(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Self,
                 url: url);
 
@@ -313,8 +313,8 @@ namespace JHome
         /// by James Snell.
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Service(string url) =>
-            new JLinkProperty(
+        public static JLink ToService(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Service,
                 url: url);
 
@@ -322,8 +322,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Start(string url) =>
-            new JLinkProperty(
+        public static JLink ToStart(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Start,
                 url: url);
 
@@ -331,8 +331,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Stylesheet(string url) =>
-            new JLinkProperty(
+        public static JLink ToStylesheet(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Stylesheet,
                 url: url);
 
@@ -340,8 +340,8 @@ namespace JHome
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Subsection(string url) =>
-            new JLinkProperty(
+        public static JLink ToSubsection(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Subsection,
                 url: url);
 
@@ -350,8 +350,8 @@ namespace JHome
         /// <remarks> [RFC5829]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty SuccessorVersion(string url) =>
-            new JLinkProperty(
+        public static JLink ToSuccessorVersion(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.SuccessorVersion,
                 url: url);
 
@@ -361,8 +361,8 @@ namespace JHome
         /// reference.  Requested by Noah Slater.
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Up(string url) =>
-            new JLinkProperty(
+        public static JLink ToUp(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Up,
                 url: url);
 
@@ -370,8 +370,8 @@ namespace JHome
         /// <remarks> [RFC5829]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty VersionHistory(string url) =>
-            new JLinkProperty(
+        public static JLink ToVersionHistory(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.VersionHistory,
                 url: url);
 
@@ -379,8 +379,8 @@ namespace JHome
         /// <remarks> [RFC4287]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty Via(string url) =>
-            new JLinkProperty(
+        public static JLink ToVia(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.Via,
                 url: url);
 
@@ -388,8 +388,8 @@ namespace JHome
         /// <remarks> [RFC5829]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty WorkingCopy(string url) =>
-            new JLinkProperty(
+        public static JLink ToWorkingCopy(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.WorkingCopy,
                 url: url);
 
@@ -397,8 +397,8 @@ namespace JHome
         /// <remarks> [RFC5829]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLinkProperty WorkingCopyOf(string url) =>
-            new JLinkProperty(
+        public static JLink ToWorkingCopyOf(string url) =>
+            new JLink(
                 relationType: RegisteredLinkRelationTypes.WorkingCopyOf,
                 url: url);
 

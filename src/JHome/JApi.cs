@@ -5,21 +5,21 @@ using System.Linq;
 
 namespace JHome
 {
-    public class JApiObject : JObject
+    public class JApi : JObject
     {
-        public JApiObject(string title) : base(Content(title, null).ToArray())
+        public JApi(string title) : base(Content(title, null).ToArray())
         {
         }
 
-        public JApiObject(string title, params JLinkProperty[] links) : base(Content(title, links).ToArray())
+        public JApi(string title, params JLink[] links) : base(Content(title, links).ToArray())
         {
         }
 
-        public JApiObject(params JLinkProperty[] links) : base(Content(default(string), links).ToArray())
+        public JApi(params JLink[] links) : base(Content(default(string), links).ToArray())
         {
         }
 
-        private static IEnumerable<object> Content(string title, JLinkProperty[] links)
+        private static IEnumerable<object> Content(string title, JLink[] links)
         {
             if (title != null)
             {

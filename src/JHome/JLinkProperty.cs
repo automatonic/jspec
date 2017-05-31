@@ -8,9 +8,9 @@ namespace JHome
     /// <summary>
     /// whose member names are link relation types[RFC5988], and values are URLs[RFC3986]
     /// </summary>
-    public class JLinkProperty : JProperty
+    public partial class JLink : JProperty
     {
-        public JLinkProperty(string relationType, string url) : base(
+        public JLink(string relationType, string url) : base(
             name: relationType,
             content: url)
         {

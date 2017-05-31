@@ -5,19 +5,19 @@ using System.Linq;
 
 namespace JHome
 {
-    public class JHomeObject : JObject
+    public class JHome : JObject
     {
-        public JHomeObject(JApiObject api, params JResourceProperty[] resources) : base(Content(resources, api).ToArray())
+        public JHome(JApi api, params JResourceProperty[] resources) : base(Content(resources, api).ToArray())
         {
 
         }
 
-        public JHomeObject(params JResourceProperty[] resources) : base(Content(resources, default(JApiObject)).ToArray())
+        public JHome(params JResourceProperty[] resources) : base(Content(resources, default(JApi)).ToArray())
         {
 
         }
 
-        private static IEnumerable<object> Content(JResourceProperty[] resources, JApiObject api)
+        private static IEnumerable<object> Content(JResourceProperty[] resources, JApi api)
         {
             if (resources == null || !resources.Any())
             {
