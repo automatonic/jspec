@@ -7,84 +7,72 @@ namespace JApi
     /// <summary>
     /// Each member of a links object is a "link"
     /// </summary>
-    public class JLinkProperty : JProperty
+    public partial class JLink : JProperty
     {
-        public JLinkProperty (string name, string href, JObject meta = null) : base(
-            name: name, 
-            content: content(href: href, meta: meta))
-        {
-        }
-
-        internal JLinkProperty (string name, object content) : base(
-            name: name, 
+        internal JLink(string name, object content) : base(
+            name: name,
             content: content)
         {
         }
 
-        private static object content(string href, JObject meta = null)
+        public static JLink For(string name, string href)
         {
-            if (href == null)
+            if (name == null)
             {
-                throw new ArgumentNullException(nameof(href));
+                throw new ArgumentNullException(nameof(name));
             }
-            return ContentOrDefault(
-                    href: href, 
-                    meta: meta);
+            return new JLink(name, href);
         }
 
-        /// <summary>
-        /// Builds the Link's content
-        /// </summary>
-        /// <param name="href"></param>
-        /// <param name="meta"></param>
-        /// <returns></returns>
-        public static object ContentOrDefault(string href, JObject meta = null)
+        public static JLink For(string name, string href, JObject meta)
         {
-            if (href == null)
+            if (name == null)
             {
-                return null;
+                throw new ArgumentNullException(nameof(name));
             }
             if (meta == null)
             {
-                return href;
+                return For(name: name, href: href);
             }
-            return new JObject(
+
+            var content = new JObject(
                 new JProperty(name: nameof(href), content: href),
                 new JProperty(name: nameof(meta), content: meta));
+            return new JLink(name, content);
         }
 
-        public static IEnumerable<JLinkProperty> Concat(
+        public static IEnumerable<JLink> Concat(
             string self,
             string related,
-            string first, 
+            string first,
             string last,
             string prev,
             string next,
-            params JLinkProperty[] links) 
-        {   
+            params JLink[] links)
+        {
             if (!string.IsNullOrWhiteSpace(self))
             {
-                yield return new JLinkProperty(nameof(self), self);
+                yield return new JLink(nameof(self), self);
             }
             if (!string.IsNullOrWhiteSpace(related))
             {
-                yield return new JLinkProperty(nameof(related), related);
+                yield return new JLink(nameof(related), related);
             }
             if (!string.IsNullOrWhiteSpace(first))
             {
-                yield return new JLinkProperty(nameof(first), first);
+                yield return new JLink(nameof(first), first);
             }
             if (!string.IsNullOrWhiteSpace(last))
             {
-                yield return new JLinkProperty(nameof(last), last);
+                yield return new JLink(nameof(last), last);
             }
             if (!string.IsNullOrWhiteSpace(prev))
             {
-                yield return new JLinkProperty(nameof(prev), prev);
+                yield return new JLink(nameof(prev), prev);
             }
             if (!string.IsNullOrWhiteSpace(next))
             {
-                yield return new JLinkProperty(nameof(next), next);
+                yield return new JLink(nameof(next), next);
             }
             if (links != null)
             {
@@ -94,6 +82,5 @@ namespace JApi
                 }
             }
         }
-
     }
 }

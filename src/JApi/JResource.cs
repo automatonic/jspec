@@ -3,9 +3,9 @@
 namespace JApi
 {
     //http://jsonapi.org/format/#document-resource-identifier-objects
-    public class JResourceObject : JObject
+    public class JResource : JObject
     {
-        public JResourceObject (string type, object id) 
+        public JResource (string type, object id) 
             : base(
                 new JProperty(nameof(type), type),
                 new JProperty(nameof(id), id)
@@ -13,7 +13,7 @@ namespace JApi
         {
         }
 
-        public JResourceObject (string type, object id, JObject meta) 
+        public JResource (string type, object id, JObject meta) 
             : base(
                 new JProperty(nameof(type), type),
                 new JProperty(nameof(id), id),
@@ -22,7 +22,7 @@ namespace JApi
         {
         }
 
-        internal JResourceObject (string type, object id, JObject meta, object[] content) 
+        internal JResource (string type, object id, JObject meta, object[] content) 
             : base(
                 new JProperty(nameof(type), type),
                 new JProperty(nameof(id), id),

@@ -13,9 +13,9 @@ namespace JApi
         [Fact]
         public void RepresentAnArrayOfResourceIdentifierObjects()
         {
-            var instance = new JDocumentObject(new[] {
-                new JResourceObject("dwarf", "gimly"),
-                new JResourceObject("dwarf", "thorin")
+            var instance = JDocument.ForResourceCollection(new[] {
+                new JResource("dwarf", "gimly"),
+                new JResource("dwarf", "thorin")
             });
             var result = instance.ToString(Newtonsoft.Json.Formatting.None);
             result.Should().Be("{\"data\":[{\"type\":\"dwarf\",\"id\":\"gimly\"},{\"type\":\"dwarf\",\"id\":\"thorin\"}]}");
@@ -24,9 +24,9 @@ namespace JApi
         [Fact]
         public void RepresentAnArrayOfResourceObjects()
         {
-            var instance = new JDocumentObject(new[] {
-                new JResourceObject("dwarf", "gimly"),
-                new JResourceObject("dwarf", "thorin")
+            var instance = new JDocument(new[] {
+                new JResource("dwarf", "gimly"),
+                new JResource("dwarf", "thorin")
             });
             var result = instance.ToString(Newtonsoft.Json.Formatting.None);
             result.Should().Be("{\"data\":[{\"type\":\"dwarf\",\"id\":\"gimly\"},{\"type\":\"dwarf\",\"id\":\"thorin\"}]}");
@@ -35,7 +35,7 @@ namespace JApi
         [Fact]
         public void RepresentAnEmptyArrayOfResourceObjects()
         {
-            var instance = new JDocumentObject(new JResourceObject[] { });
+            var instance = new JDocument(new JResource[] { });
             var result = instance.ToString(Newtonsoft.Json.Formatting.None);
             result.Should().Be("{\"data\":[]}");
         }
@@ -43,7 +43,7 @@ namespace JApi
         [Fact]
         public void RepresentASingleNullResourceObject()
         {
-            var instance = new JDocumentObject(data: default(JResourceObject));
+            var instance = new JDocument(data: default(JResource));
             var result = instance.ToString(Newtonsoft.Json.Formatting.None);
             result.Should().Be("{\"data\":null}");
         }
@@ -51,7 +51,7 @@ namespace JApi
         [Fact]
         public void RepresentASingleResourceIdentifierObject()
         {
-            var instance = new JDocumentObject(new JResourceObject("dwarf", "gimly"));
+            var instance = new JDocument(new JResource("dwarf", "gimly"));
             var result = instance.ToString(Newtonsoft.Json.Formatting.None);
             result.Should().Be("{\"data\":{\"type\":\"dwarf\",\"id\":\"gimly\"}}");
         }
@@ -59,7 +59,7 @@ namespace JApi
         [Fact]
         public void RepresentASingleResourceObject()
         {
-            var instance = new JDocumentObject(new JResourceObject("dwarf", "gimly"));
+            var instance = new JDocument(new JResource("dwarf", "gimly"));
             var result = instance.ToString(Newtonsoft.Json.Formatting.None);
             result.Should().Be("{\"data\":{\"type\":\"dwarf\",\"id\":\"gimly\"}}");
         }

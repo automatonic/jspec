@@ -1,13 +1,14 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace JApi
 {
     /// <summary>
     /// Error objects provide additional information about problems encountered while performing an operation. Error objects MUST be returned as an array keyed by errors in the top level of a JSON API document.
     /// </summary>
-    public class JErrorObject : JObject
+    public class JError : JObject
     {
         /// <summary>
         /// An error object MAY have the following members:
@@ -22,7 +23,7 @@ namespace JApi
         /// <param name="sourcePointer">an object containing references to the source of the error, optionally including any of the following members: a JSON Pointer [RFC6901] to the associated entity in the request document [e.g. "/data" for a primary data object, or "/data/attributes/title" for a specific attribute].</param>
         /// <param name="sourceParameter">a string indicating which URI query parameter caused the error.</param>
         /// <param name="meta">a meta object containing non-standard meta-information about the error.</param>
-        public JErrorObject(
+        public JError(
             string id = null, 
             string aboutHref = null, 
             JObject aboutMeta = null, 
@@ -34,42 +35,22 @@ namespace JApi
             string sourceParameter = null, 
             JObject meta = null) 
         : base(
-            content: content(
+            content: Content(
                 id: id,
-                links: links(
-                    about: about(
-                        href: aboutHref, 
-                        meta: aboutMeta)),
+                links: JLinks.For(
+                    JLink.For("about", aboutHref, aboutMeta)),
                 status: status,
                 code: code,
                 title: title,
                 detail: detail,
-                source: source(
+                source: SourceOrDefault(
                     pointer: sourcePointer,
                     parameter: sourceParameter),
                 meta: meta).ToArray())
         {
         }
 
-        private static JLinkProperty about(string href, JObject meta)
-        {
-            var content = JLinkProperty.ContentOrDefault(href, meta);
-            if (content == null)
-            {
-                return null;
-            }
-            return new JLinkProperty(nameof(about), content);
-        }
-        private static JLinksObject links(JLinkProperty about)
-        {
-            if (about == null)
-            {
-                return null;
-            }
-            return new JLinksObject(about);
-        }
-
-        private static JObject source(
+        public static JObject SourceOrDefault(
             string pointer,
             string parameter)
         {
@@ -99,9 +80,9 @@ namespace JApi
             }
         }
 
-        private static IEnumerable<object> content(
+        public static IEnumerable<object> Content(
             string id = null,
-            JLinksObject links = null,
+            JLinks links = null,
             string status = null,
             string code = null,
             string title = null,
@@ -142,6 +123,10 @@ namespace JApi
                 yield return new JProperty(nameof(meta), meta);
             }
         }
-        
+
+        internal static bool IsValid(JError arg)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

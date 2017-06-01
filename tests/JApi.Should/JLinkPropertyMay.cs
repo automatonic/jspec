@@ -9,7 +9,7 @@ namespace JApi
         [Fact]
         public void ContainASingleHref()
         {
-            var instance = new JLinkProperty(
+            var instance = new JLink(
                 name:"about", 
                 href:"http://github.com");
             var result = instance.ToString(Newtonsoft.Json.Formatting.None);
@@ -19,7 +19,7 @@ namespace JApi
         [Fact]
         public void ContainAnHrefAndMeta()
         {
-            var instance = new JLinkProperty(
+            var instance = new JLink(
                 name:"about", 
                 href:"http://github.com", 
                 meta: new JObject(

@@ -6,7 +6,7 @@ using System.Text;
 namespace JHome
 {
     /// <summary>
-    /// whose member names are link relation types[RFC5988], and values are URLs[RFC3986]
+    /// A property whose member names are link relation types[RFC5988], and values are URLs[RFC3986]
     /// </summary>
     public partial class JLink : JProperty
     {
@@ -15,7 +15,5 @@ namespace JHome
             content: url)
         {
         }
-
-
     }
 }

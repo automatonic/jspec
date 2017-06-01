@@ -4,214 +4,209 @@ using System.Text;
 
 namespace JHome
 {
-    /// <summary>
     /// Relation types from RFC 5988
-    /// </summary>
-    /// <remarks>
     /// https://tools.ietf.org/html/rfc5988#section-4.1
-    /// </remarks>
     public partial class JLink
     {
-        /// <summary> Designates a substitute for the link's context.</summary>
+        /// <summary> Creates a new JLink instance that designates a substitute for the link's context.</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToAlternate(string url) =>
+        public static JLink ForAlternate(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Alternate,
+                relationType: "alternate",
                 url: url);
 
-
-        /// <summary> Refers to an appendix.</summary>
+        /// <summary> Creates a new JLink instance that refers to an appendix.</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToAppendix(string url) =>
+        public static JLink ForAppendix(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Appendix,
+                relationType: "appendix",
                 url: url);
 
-        /// <summary> Refers to a bookmark or entry point.</summary>
+        /// <summary> Creates a new JLink instance that refers to a bookmark or entry point.</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToBookmark(string url) =>
+        public static JLink ForBookmark(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Bookmark,
+                relationType: "bookmark",
                 url: url);
 
-        /// <summary> Refers to a chapter in a collection of resources.</summary>
+        /// <summary> Creates a new JLink instance that refers to a chapter in a collection of resources.</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToChapter(string url) =>
+        public static JLink ForChapter(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Chapter,
+                relationType: "chapter",
                 url: url);
 
-        /// <summary> Refers to a table of contents.</summary>
+        /// <summary> Creates a new JLink instance that refers to a table of contents.</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToContents(string url) =>
+        public static JLink ForContents(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Contents,
+                relationType: "contents",
                 url: url);
 
-        /// <summary> Refers to a copyright statement that applies to the link's context.</summary>
+        /// <summary> Creates a new JLink instance that refers to a copyright statement that applies to the link's context.</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToCopyright(string url) =>
+        public static JLink ForCopyright(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Copyright,
+                relationType: "copyright",
                 url: url);
 
-        /// <summary> Refers to a resource containing the most recent item(s) in a collection of resources.</summary>
+        /// <summary> Creates a new JLink instance that refers to a resource containing the most recent item(s) in a collection of resources.</summary>
         /// <remarks> [RFC5005]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToCurrent(string url) =>
+        public static JLink ForCurrent(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Current,
+                relationType: "current",
                 url: url);
 
-        /// <summary> Refers to a resource providing information about the link's context.</summary>
+        /// <summary> Creates a new JLink instance that refers to a resource providing information about the link's context.</summary>
         /// <remarks> <http://www.w3.org/TR/powder-dr/#assoc-linking>
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToDescribedby(string url) =>
+        public static JLink ForDescribedby(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Describedby,
+                relationType: "describedby",
                 url: url);
 
 
-        /// <summary> Refers to a resource that can be used to edit the link's context.</summary>
+        /// <summary> Creates a new JLink instance that refers to a resource that can be used to edit the link's context.</summary>
         /// <remarks> [RFC5023]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToEdit(string url) =>
+        public static JLink ForEdit(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Edit,
+                relationType: "edit",
                 url: url);
 
-        /// <summary> Refers to a resource that can be used to edit media associated with the link's context.</summary>
+        /// <summary> Creates a new JLink instance that refers to a resource that can be used to edit media associated with the link's context.</summary>
         /// <remarks> [RFC5023]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToEditMedia(string url) =>
+        public static JLink ForEditMedia(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.EditMedia,
+                relationType: "edit-media",
                 url: url);
 
-        /// <summary> Identifies a related resource that is potentially large and might require special handling.</summary>
+        /// <summary> Creates a new JLink instance that identifies a related resource that is potentially large and might require special handling.</summary>
         /// <remarks> [RFC4287]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToEnclosure(string url) =>
+        public static JLink ForEnclosure(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Enclosure,
+                relationType: "enclosure",
                 url: url);
 
-        /// <summary> An IRI that refers to the furthest preceding resource  in a series of resources.</summary>
+        /// <summary> Creates a new JLink instance that is an IRI that refers to the furthest preceding resource in a series of resources.</summary>
         /// <remarks> [RFC5988]
         ///  Notes: this relation type registration did not indicate a
         ///       reference.  Originally requested by Mark Nottingham in December
         ///       2004.
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToFirst(string url) =>
+        public static JLink ForFirst(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.First,
+                relationType: "first",
                 url: url);
 
 
-        /// <summary> Refers to a glossary of terms.</summary>
+        /// <summary> Creates a new JLink instance that refers to a glossary of terms.</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToGlossary(string url) =>
+        public static JLink ForGlossary(string url) =>
              new JLink(
-                 relationType: RegisteredLinkRelationTypes.Glossary,
+                 relationType: "glossary",
                  url: url);
 
-        /// <summary> Refers to a resource offering help (more information, links to other sources information, etc.)</summary>
+        /// <summary> Creates a new JLink instance that refers to a resource offering help (more information, links to other sources information, etc.)</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToHelp(string url) =>
+        public static JLink ForHelp(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Help,
+                relationType: "help",
                 url: url);
 
-        /// <summary> Refers to a hub that enables registration for notification of updates to the context.</summary>
+        /// <summary> Creates a new JLink instance that refers to a hub that enables registration for notification of updates to the context.</summary>
         /// <remarks> <http://pubsubhubbub.googlecode.com/> <http://pubsubhubbub.googlecode.com/svn/trunk/pubsubhubbub-core-0.3.html>
         /// Notes: this relation type was requested by Brett Slatkin.
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToHub(string url) =>
+        public static JLink ForHub(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Hub,
+                relationType: "hub",
                 url: url);
 
-        /// <summary> Refers to an index.</summary>
+        /// <summary> Creates a new JLink instance that refers to an index.</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToIndex(string url) =>
+        public static JLink ForIndex(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Index,
+                relationType: "index",
                 url: url);
 
-        /// <summary> An IRI that refers to the furthest following resource in a series of resources.</summary>
+        /// <summary> Creates a new JLink instance that is an IRI that refers to the furthest following resource in a series of resources.</summary>
         /// <remarks> [RFC5988]
         /// Notes: this relation type registration did not indicate a
         ///   reference.  Originally requested by Mark Nottingham in December
         ///   2004.
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToLast(string url) =>
+        public static JLink ForLast(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Last,
+                relationType: "last",
                 url: url);
 
-        /// <summary> Points to a resource containing the latest (e.g., current) version of the context.</summary>
+        /// <summary> Creates a new JLink instance that points to a resource containing the latest (e.g., current) version of the context.</summary>
         /// <remarks> [RFC5829]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToLatestVersion(string url) =>
+        public static JLink ForLatestVersion(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.LatestVersion,
+                relationType: "latest-version",
                 url: url);
 
-        /// <summary> Refers to a license associated with the link's context.</summary>
+        /// <summary> Creates a new JLink instance that refers to a license associated with the link's context.</summary>
         /// <remarks> [RFC4946]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToLicense(string url) =>
+        public static JLink ForLicense(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.License,
+                relationType: "license",
                 url: url);
 
-        /// <summary> Refers to the next resource in a ordered series of resources.</summary>
+        /// <summary> Creates a new JLink instance that refers to the next resource in a ordered series of resources.</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToNext(string url) =>
+        public static JLink ForNext(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Next,
+                relationType: "next",
                 url: url);
 
-        /// <summary> Refers to the immediately following archive resource.</summary>
+        /// <summary> Creates a new JLink instance that refers to the immediately following archive resource.</summary>
         /// <remarks> [RFC5005]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToNextArchive(string url) =>
+        public static JLink ForNextArchive(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.NextArchive,
+                relationType: "next-archive",
                 url: url);
 
-        /// <summary> indicates a resource where payment is accepted.</summary>
+        /// <summary> Creates a new JLink instance that indicates a resource where payment is accepted.</summary>
         /// <remarks> [RFC5988]
         /// Notes: this relation type registration did not indicate a
         /// reference.  Requested by Joshua Kinberg and Robert Sayre.It is
@@ -229,177 +224,177 @@ namespace JHome
         /// through an online retailer.
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToPayment(string url) =>
+        public static JLink ForPayment(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Payment,
+                relationType: "payment",
                 url: url);
 
-        /// <summary> Refers to the previous resource in an ordered series of resources.Synonym for "previous".</summary>
+        /// <summary> Creates a new JLink instance that refers to the previous resource in an ordered series of resources. Synonym for "previous".</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToPrev(string url) =>
+        public static JLink ForPrev(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Prev,
+                relationType: "prev",
                 url: url);
 
-        /// <summary> Points to a resource containing the predecessor version in the version history.</summary>
+        /// <summary> Creates a new JLink instance that points to a resource containing the predecessor version in the version history.</summary>
         /// <remarks> [RFC5829]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToPredecessorVersion(string url) =>
+        public static JLink ForPredecessorVersion(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.PredecessorVersion,
+                relationType: "predecessor-version",
                 url: url);
 
-        /// <summary> Refers to the previous resource in an ordered series of resources.Synonym for "prev".</summary>
+        /// <summary> Creates a new JLink instance that refers to the previous resource in an ordered series of resources. Synonym for "prev".</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToPrevious(string url) =>
+        public static JLink ForPrevious(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Previous,
+                relationType: "previous",
                 url: url);
 
-        /// <summary> Refers to the immediately preceding archive resource.</summary>
+        /// <summary> Creates a new JLink instance that refers to the immediately preceding archive resource.</summary>
         /// <remarks> [RFC5005]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToPrevArchive(string url) =>
+        public static JLink ForPrevArchive(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.PrevArchive,
+                relationType: "prev-archive",
                 url: url);
 
-        /// <summary> Identifies a related resource.</summary>
+        /// <summary> Creates a new JLink instance that identifies a related resource.</summary>
         /// <remarks> [RFC4287]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToRelated(string url) =>
+        public static JLink ForRelated(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Related,
+                relationType: "related",
                 url: url);
 
-        /// <summary> Identifies a resource that is a reply to the context of the link.</summary>
+        /// <summary> Creates a new JLink instance that identifies a resource that is a reply to the context of the link.</summary>
         /// <remarks> [RFC4685]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToReplies(string url) =>
+        public static JLink ForReplies(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Replies,
+                relationType: "replies",
                 url: url);
 
-        /// <summary> Refers to a section in a collection of resources.</summary>
+        /// <summary> Creates a new JLink instance that refers to a section in a collection of resources.</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToSection(string url) =>
+        public static JLink ForSection(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Section,
+                relationType: "section",
                 url: url);
 
-        /// <summary> Conveys an identifier for the link's context.</summary>
+        /// <summary> Creates a new JLink instance that conveys an identifier for the link's context.</summary>
         /// <remarks> [RFC4287]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToSelf(string url) =>
+        public static JLink ForSelf(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Self,
+                relationType: "self",
                 url: url);
 
-        /// <summary> Indicates a URI that can be used to retrieve a service document.</summary>
+        /// <summary> Creates a new JLink instance that indicates a URI that can be used to retrieve a service document.</summary>
         /// <remarks> [RFC5023]
         /// Notes: When used in an Atom document, this relation type specifies
         /// Atom Publishing Protocol service documents by default.  Requested
         /// by James Snell.
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToService(string url) =>
+        public static JLink ForService(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Service,
+                relationType: "service",
                 url: url);
 
-        /// <summary> Refers to the first resource in a collection of resources.</summary>
+        /// <summary> Creates a new JLink instance that refers to the first resource in a collection of resources.</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToStart(string url) =>
+        public static JLink ForStart(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Start,
+                relationType: "start",
                 url: url);
 
-        /// <summary> Refers to an external style sheet.</summary>
+        /// <summary> Creates a new JLink instance that refers to an external style sheet.</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToStylesheet(string url) =>
+        public static JLink ForStylesheet(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Stylesheet,
+                relationType: "stylesheet",
                 url: url);
 
-        /// <summary> Refers to a resource serving as a subsection in a collection of resources.</summary>
+        /// <summary> Creates a new JLink instance that refers to a resource serving as a subsection in a collection of resources.</summary>
         /// <remarks> [W3C.REC-html401-19991224]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToSubsection(string url) =>
+        public static JLink ForSubsection(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Subsection,
+                relationType: "subsection",
                 url: url);
 
 
-        /// <summary> Points to a resource containing the successor version in the version history.</summary>
+        /// <summary> Creates a new JLink instance that points to a resource containing the successor version in the version history.</summary>
         /// <remarks> [RFC5829]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToSuccessorVersion(string url) =>
+        public static JLink ForSuccessorVersion(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.SuccessorVersion,
+                relationType: "successor-version",
                 url: url);
 
-        /// <summary> Refers to a parent document in a hierarchy of documents.</summary>
+        /// <summary> Creates a new JLink instance that refers to a parent document in a hierarchy of documents.</summary>
         /// <remarks> [RFC5988]
         /// Notes: this relation type registration did not indicate a
         /// reference.  Requested by Noah Slater.
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToUp(string url) =>
+        public static JLink ForUp(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Up,
+                relationType: "up",
                 url: url);
 
-        /// <summary> points to a resource containing the version history for the context.</summary>
+        /// <summary> Creates a new JLink instance that points to a resource containing the version history for the context.</summary>
         /// <remarks> [RFC5829]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToVersionHistory(string url) =>
+        public static JLink ForVersionHistory(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.VersionHistory,
+                relationType: "version-history",
                 url: url);
 
-        /// <summary> Identifies a resource that is the source of the information in the link's context.</summary>
+        /// <summary> Creates a new JLink instance that identifies a resource that is the source of the information in the link's context.</summary>
         /// <remarks> [RFC4287]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToVia(string url) =>
+        public static JLink ForVia(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.Via,
+                relationType: "via",
                 url: url);
 
-        /// <summary> Points to a working copy for this resource.</summary>
+        /// <summary> Creates a new JLink instance that points to a working copy for this resource.</summary>
         /// <remarks> [RFC5829]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToWorkingCopy(string url) =>
+        public static JLink ForWorkingCopy(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.WorkingCopy,
+                relationType: "working-copy",
                 url: url);
 
-        /// <summary> Points to the versioned resource from which this working copy was obtained.</summary>
+        /// <summary> Creates a new JLink instance that points to the versioned resource from which this working copy was obtained.</summary>
         /// <remarks> [RFC5829]
         /// <param name="url">The URL for this relation</param>
         /// <returns>a new JLinkProperty for this relation type and URL</returns>
-        public static JLink ToWorkingCopyOf(string url) =>
+        public static JLink ForWorkingCopyOf(string url) =>
             new JLink(
-                relationType: RegisteredLinkRelationTypes.WorkingCopyOf,
+                relationType: "working-copy-of",
                 url: url);
 
     }
