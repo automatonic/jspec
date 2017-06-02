@@ -13,7 +13,7 @@ namespace JApi
         [Fact]
         public void RepresentAnArrayOfResourceIdentifierObjects()
         {
-            var instance = JDocument.ForResourceCollection(new[] {
+            var instance = JDocument.For(new[] {
                 new JResource("dwarf", "gimly"),
                 new JResource("dwarf", "thorin")
             });
@@ -24,7 +24,7 @@ namespace JApi
         [Fact]
         public void RepresentAnArrayOfResourceObjects()
         {
-            var instance = JDocument.ForResourceCollection(new[] {
+            var instance = JDocument.For(new[] {
                 new JResource("dwarf", "gimly"),
                 new JResource("dwarf", "thorin")
             });
@@ -35,7 +35,7 @@ namespace JApi
         [Fact]
         public void RepresentAnEmptyArrayOfResourceObjects()
         {
-            var instance = JDocument.ForResourceCollection(new JResource[] { });
+            var instance = JDocument.For(new JResource[] { });
             var result = instance.ToString(Newtonsoft.Json.Formatting.None);
             result.Should().Be("{\"data\":[]}");
         }
@@ -43,7 +43,7 @@ namespace JApi
         [Fact]
         public void RepresentASingleNullResourceObject()
         {
-            var instance = JDocument.ForResource(data: default(JResource));
+            var instance = JDocument.For(resource: default(JResource));
             var result = instance.ToString(Newtonsoft.Json.Formatting.None);
             result.Should().Be("{\"data\":null}");
         }
@@ -51,7 +51,7 @@ namespace JApi
         [Fact]
         public void RepresentASingleResourceIdentifierObject()
         {
-            var instance = JDocument.ForResource(new JResource("dwarf", "gimly"));
+            var instance = JDocument.For(new JResource("dwarf", "gimly"));
             var result = instance.ToString(Newtonsoft.Json.Formatting.None);
             result.Should().Be("{\"data\":{\"type\":\"dwarf\",\"id\":\"gimly\"}}");
         }
@@ -59,7 +59,7 @@ namespace JApi
         [Fact]
         public void RepresentASingleResourceObject()
         {
-            var instance = JDocument.ForResource(new JResource("dwarf", "gimly"));
+            var instance = JDocument.For(new JResource("dwarf", "gimly"));
             var result = instance.ToString(Newtonsoft.Json.Formatting.None);
             result.Should().Be("{\"data\":{\"type\":\"dwarf\",\"id\":\"gimly\"}}");
         }

@@ -17,41 +17,30 @@ namespace JApi
         /// <summary>
         /// Creates a JSON API document for a single resource
         /// </summary>
-        /// <param name="data">the document's "primary data" resource</param>
+        /// <param name="resource">the document's "primary data" resource</param>
         /// <param name="meta">a meta object that contains non-standard meta-information</param>
         /// <param name="jsonapi">details about the api</param>
         /// <param name="links">the links relevant to the current resource context</param>
         /// <param name="included">an array of resource objects that are related to the primary data and/or each other</param>
-        public static JDocument ForResource(
-            JResource data,
+        public static JDocument For(
+            JResource resource,
             JObject meta = null,
             JApi jsonapi = null,
             JLinks links = null,
             JResource[] included = null)
         {
-            if (data == null)
+            if (resource == null)
             {
-                throw new ArgumentNullException(nameof(data));
+                throw new ArgumentNullException(nameof(resource));
             }
 
-            var document = new JDocument(new JProperty(nameof(data), data));
-            if (meta != null)
-            {
-                document.Add(nameof(meta), meta);
-            }
-            if (jsonapi != null)
-            {
-                document.Add(nameof(jsonapi), jsonapi);
-            }
-            if (links != null && links.HasValues)
-            {
-                document.Add(nameof(links), links);
-            }
-            if (included != null)
-            {
-                document.Add(nameof(included), new JArray(included));
-            }
-            return document;
+            return For(
+                data: resource,
+                meta: meta,
+                jsonapi: jsonapi,
+                links: links,
+                included: included
+            );
         }
 
 
@@ -62,19 +51,41 @@ namespace JApi
         /// <param name="meta">a meta object that contains non-standard meta-information</param>
         /// <param name="jsonapi">details about the api</param>
         /// <param name="included">an array of resource objects that are related to the primary data and/or each other</param>
-        public static JDocument ForResourceCollection(
-            IEnumerable<JResource> data,
+        public static JDocument For(
+            IEnumerable<JResource> resources,
             JObject meta = null,
             JApi jsonapi = null,
             JLinks links = null,
             JResource[] included = null)
         {
-            if (data == null)
+            if (resources == null)
             {
-                throw new ArgumentNullException(nameof(data));
+                throw new ArgumentNullException(nameof(resources));
             }
+            return For(
+                data: resources.ToArray(),
+                meta: meta,
+                jsonapi: jsonapi,
+                links: links,
+                included: included
+            );
+        }
 
-            var document = new JDocument(new JProperty(nameof(data), data.ToArray()));
+        // <summary>
+        /// Creates a JSON API document for the specified data
+        /// </summary>
+        /// <param name="resources">the document's "primary data" resource collection</param>
+        /// <param name="meta">a meta object that contains non-standard meta-information</param>
+        /// <param name="jsonapi">details about the api</param>
+        /// <param name="included">an array of resource objects that are related to the primary data and/or each other</param>
+        internal static JDocument For(
+            object data,
+            JObject meta = null,
+            JApi jsonapi = null,
+            JLinks links = null,
+            JResource[] included = null)
+        {
+            var document = new JDocument(new JProperty(nameof(data), data));
             if (meta != null)
             {
                 document.Add(nameof(meta), meta);

@@ -9,32 +9,29 @@ namespace JApi
     /// </summary>
     public class JApi : JObject
     {
-        /// <summary>
-        /// Creates a new JSON API Object
-        /// </summary>
-        /// <param name="version">an optional version string</param>
-        /// <param name="meta">an optional meta object</param>
-        public JApi(string version = null, JObject meta = null)
-            : base(content: Content(version: version, meta: meta).ToArray())
+        internal JApi(params object[] content)
+            : base(content)
         {
         }
 
         /// <summary>
         /// Constructs the content of the JObject representation of this type
         /// </summary>
-        /// <param name="version"></param>
-        /// <param name="meta"></param>
+        /// <param name="version">an optional version string</param>
+        /// <param name="meta">an optional meta object</param>
         /// <returns></returns>
-        public static IEnumerable<object> Content(string version = null, JObject meta = null)
+        public static JApi For(string version = null, JObject meta = null)
         {
+            var api = new JApi();
             if (!string.IsNullOrWhiteSpace(version))
             {
-                yield return new JProperty(nameof(version), version);
+                api.Add(nameof(version), version);
             }
             if (meta != null)
             {
-                yield return new JProperty(nameof(meta), meta);
+                api.Add(nameof(meta), meta);
             }
+            return api;
         }
     }
 }

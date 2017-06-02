@@ -3,7 +3,7 @@ using Xunit;
 
 namespace JHome.Should
 {
-    public class JApiObjectShould
+    public class JApiShould
     {
         [Fact]
         public void Test1()
